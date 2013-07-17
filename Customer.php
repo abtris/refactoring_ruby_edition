@@ -40,28 +40,28 @@ class Customer
     return $result;
 	}
 
-	public function amount_for($element)
+	public function amount_for($rental)
 	{
-			$this_amount = 0;
+			$result = 0;
 			// determine amounts for each line
-			switch ($element->movie->price_code) {
+			switch ($rental->movie->price_code) {
 				case Movie::REGULAR:
-					$this_amount += 2;
-					if ($element->days_rented>2) {
-						$this_amount += ($element->days_rented - 2) * 1.5;
+					$result += 2;
+					if ($rental->days_rented>2) {
+						$result += ($rental->days_rented - 2) * 1.5;
 					}
 					break;
 				
 				case Movie::NEW_RELEASE:
-					$this_amount += $element->days_rented * 3;
+					$result += $rental->days_rented * 3;
 					break;
 
 				case Movie::CHILDRENS:
-					$this_amount += 1.5;
-					if ($element->days_rented>3) {
-						$this_amount += ($element->days_rented - 3) * 1.5;
+					$result += 1.5;
+					if ($rental->days_rented>3) {
+						$result += ($rental->days_rented - 3) * 1.5;
 					}	
 			}		
-			return $this_amount;
+			return $result;
 	}
 }
