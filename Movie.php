@@ -19,5 +19,16 @@ class Movie
 	public function price_code($value)
 	{
 		$this->price_code = $value;
+		switch ($this->price_code) {
+			case self::REGULAR:
+				$this->price = new RegularPrice();
+				break;
+			case self::NEW_RELEASE:
+				$this->price = new NewReleasePrice();
+				break;
+			case self::CHILDRENS:
+				$this->price = new ChildrensPrice();
+				break;
+		}
 	}
 }
