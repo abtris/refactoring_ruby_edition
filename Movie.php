@@ -13,6 +13,11 @@ class Movie
 	public function __construct($title, $price_code)
 	{
 		$this->title = $title;
-		$this->price_code = $price_code;
+		$this->price_code($price_code);
+	}
+
+	public function price_code($value)
+	{
+		$this->price_code = $value;
 	}
 }
