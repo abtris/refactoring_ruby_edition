@@ -23,12 +23,7 @@ class Customer
 		$frequent_renter_points = 0;
 		$result = "Rental Record for $this->name\n";
 		foreach ($this->rentals as $element) {						
-			// add frequent renter points
-      $frequent_renter_points += 1;
-      // add bonus for a two day new release rental
-      if ($element->movie->price_code == Movie::NEW_RELEASE && $element->days_rented > 1) {
-          $frequent_renter_points += 1;
-      }
+			$frequent_renter_points += $element->frequent_renter_points();
       // show figures for this rental
       $result .= "\t" . $element->movie->title . "\t" . (string) $element->charge() . "\n";
       $total_amount += $element->charge();

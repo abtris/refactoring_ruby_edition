@@ -36,4 +36,9 @@ class Rental
 			}		
 			return $result;
 	}	
+
+	public function frequent_renter_points()
+	{
+			return ($this->movie->price_code == Movie::NEW_RELEASE && $this->days_rented > 1) ? 2 : 1;
+	}		
 }
