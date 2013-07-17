@@ -31,4 +31,9 @@ class Movie
 				break;
 		}
 	}
+
+	public function charge($days_rented)
+	{
+		return $this->price->charge($days_rented);
+	}
 }

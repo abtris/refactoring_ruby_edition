@@ -22,7 +22,7 @@ class Customer
 		$result = "Rental Record for $this->name\n";
 		foreach ($this->rentals as $element) {						
       // show figures for this rental
-      $result .= "\t" . $element->movie->title . "\t" . (string) $element->charge() . "\n";
+      $result .= "\t" . $element->movie->title . "\t" . (string) $element->movie->charge($element->days_rented) . "\n";
 		}
  		// add footer lines
     $result .= "Amount owed is {$this->total_charge()} \n";
@@ -49,7 +49,7 @@ class Customer
 	{
 		$result = 0;
 		foreach ($this->rentals as $element) {						
-			$result += $element->charge();
+			$result += $element->movie->charge($element->days_rented);
 		}
 		return $result;
 	}
