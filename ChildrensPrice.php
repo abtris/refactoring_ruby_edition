@@ -1,6 +1,6 @@
 <?php
 
-class ChildrensPrice
+class ChildrensPrice extends DefaultPrice
 {
 	public function charge($days_rented)
 	{

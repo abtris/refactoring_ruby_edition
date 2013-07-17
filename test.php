@@ -3,6 +3,7 @@
 require_once "Customer.php";
 require_once "Movie.php";
 require_once "Rental.php";
+require_once "DefaultPrice.php";
 require_once "RegularPrice.php";
 require_once "NewReleasePrice.php";
 require_once "ChildrensPrice.php";

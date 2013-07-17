@@ -1,6 +1,6 @@
 <?php
 
-class RegularPrice
+class RegularPrice extends DefaultPrice
 {
     public function charge($days_rented)
     {
