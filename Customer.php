@@ -42,26 +42,6 @@ class Customer
 
 	public function amount_for($rental)
 	{
-			$result = 0;
-			// determine amounts for each line
-			switch ($rental->movie->price_code) {
-				case Movie::REGULAR:
-					$result += 2;
-					if ($rental->days_rented>2) {
-						$result += ($rental->days_rented - 2) * 1.5;
-					}
-					break;
-				
-				case Movie::NEW_RELEASE:
-					$result += $rental->days_rented * 3;
-					break;
-
-				case Movie::CHILDRENS:
-					$result += 1.5;
-					if ($rental->days_rented>3) {
-						$result += ($rental->days_rented - 3) * 1.5;
-					}	
-			}		
-			return $result;
+			return $rental->charge();
 	}
 }
