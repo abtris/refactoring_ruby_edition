@@ -58,7 +58,7 @@ class Customer
 	{
 		$result = 0;
 		foreach ($this->rentals as $element) {						
-			$result += $element->frequent_renter_points();
+			$result += $element->movie->frequent_renter_points($element->days_rented);
 		}
 		return $result;		
 	}

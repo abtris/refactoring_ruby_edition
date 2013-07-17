@@ -34,6 +34,11 @@ class Movie
 
 	public function charge($days_rented)
 	{
-		return $this->price->charge($days_rented);
+			return $this->price->charge($days_rented);
+	}
+
+  public function frequent_renter_points($days_rented)
+  {
+   		return ($this->price_code == self::NEW_RELEASE && $days_rented > 1) ? 2 : 1;
 	}
 }
