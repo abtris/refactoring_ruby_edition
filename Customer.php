@@ -29,8 +29,17 @@ class Customer
       $total_amount += $element->charge();
 		}
  		// add footer lines
-    $result .= "Amount owed is $total_amount\n";
+    $result .= "Amount owed is {$this->total_charge()} \n";
     $result .= "You earned $frequent_renter_points frequent renter points";
     return $result;
 	}	
+
+	public function total_charge()
+	{
+			$result = 0;
+			foreach ($this->rentals as $element) {						
+				$result += $element->charge();
+			}
+			return $result;
+	}
 }
