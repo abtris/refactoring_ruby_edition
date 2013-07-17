@@ -10,10 +10,10 @@ require_once "ChildrensPrice.php";
 
 $customer = new Customer("John Doe", 12);
 
-$movie_1 = new Movie("Despicable Me 2", 2);
-$movie_2 = new Movie("Grown Ups 2", 0 );
-$movie_3 = new Movie("Pacific Rim", 1);
-$movie_4 = new Movie("The Heat", 0);
+$movie_1 = new Movie("Despicable Me 2", new ChildrensPrice());
+$movie_2 = new Movie("Grown Ups 2", new RegularPrice() );
+$movie_3 = new Movie("Pacific Rim", new NewReleasePrice());
+$movie_4 = new Movie("The Heat", new RegularPrice());
 
 $rental_1 = new Rental($movie_1, 3);
 $rental_2 = new Rental($movie_2, 1);
