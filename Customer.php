@@ -23,7 +23,7 @@ class Customer
 		$frequent_renter_points = 0;
 		$result = "Rental Record for $this->name\n";
 		foreach ($this->rentals as $element) {			
-			$this_amount = $this->amount_for($element);
+			$this_amount = $element->charge();
 			// add frequent renter points
       $frequent_renter_points += 1;
       // add bonus for a two day new release rental
@@ -38,10 +38,5 @@ class Customer
     $result .= "Amount owed is $total_amount\n";
     $result .= "You earned $frequent_renter_points frequent renter points";
     return $result;
-	}
-
-	public function amount_for($rental)
-	{
-			return $rental->charge();
-	}
+	}	
 }
